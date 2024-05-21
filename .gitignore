@@ -1,0 +1,5 @@
+airflow/
+docker/
+.venv*
+
+dbt/logs/
