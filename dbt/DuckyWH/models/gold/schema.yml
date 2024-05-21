@@ -1,0 +1,6 @@
+
+version: 2
+
+models:
+  - name: ref_cities
+    description : "Cities referential gold data"

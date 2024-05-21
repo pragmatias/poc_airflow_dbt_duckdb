@@ -1,5 +1,6 @@
 airflow/
 docker/
 .venv*
-
+logs/
 dbt/logs/
+data/database/

@@ -1,0 +1,14 @@
+DuckyWH:
+  target: poc
+  outputs:
+    poc:
+      type: duckdb
+      path: '../../data/database/DuckyWH.duckdb'
+      extensions:
+        - parquet 
+      schema: poc
+    prod:
+      type: duckdb
+      path: '../../data/database/DuckyWH.duckdb'
+      schema: prd
+
