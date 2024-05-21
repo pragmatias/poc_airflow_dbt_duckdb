@@ -4,3 +4,5 @@ docker/
 logs/
 dbt/logs/
 data/database/
+.vscode/
+

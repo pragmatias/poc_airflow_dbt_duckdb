@@ -5,4 +5,5 @@ sources:
     schema: raw
     tables:
       - name: cities
+      - name: communes
 
