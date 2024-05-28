@@ -1,6 +1,7 @@
 {{ config(
   materialized="table",
-  schema="silver"
+  schema="silver",
+  tags=["sel_cities"],
 )}}
 
 
@@ -20,4 +21,5 @@ with newdata as (
 
 select *
 from newdata
+
 

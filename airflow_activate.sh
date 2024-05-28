@@ -32,26 +32,10 @@ if [ ${AIRFLOW_INSTALLED} -ne 1 ]
 then
   print_log "Install requirements ..."
   pip install "apache-airflow==2.9.1" --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-2.9.1/constraints-3.8.txt"
+  pip install psycopg2-binary
   print_log "Requirements OK !"
 fi
 
-
-
-# if db config not exist
-if [ ! -e ${AIRFLOW_HOME}/airflow.db ]
-then 
-  print_log "Initialize the airflow configuration ..."
-  airflow db migrate 
-  airflow users create --username admin --firstname admin --lastname admin --role Admin --email admin@admin --password admin
-
-
-  # Maj config file
-  sed -i 's/^\(load_examples =\).*/\1 False/g' ${AIRFLOW_HOME}/airflow.cfg
-  # Change the dags folder ()
-  sed -i "s#^\(dags_folder =\).*#\1 ${PWD_HOME}/dags#g" ${AIRFLOW_HOME}/airflow.cfg
-
-  print_log "Airflow configuration OK !"
-fi
 
 
 

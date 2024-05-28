@@ -1,8 +1,18 @@
-airflow/
-docker/
+# Environment
 .venv*
-logs/
-dbt/logs/
-data/database/
 .vscode/
 
+# Tools
+airflow/
+
+# Logs
+logs/
+dbt/logs/
+
+# Data
+data/database/
+data/genere/
+
+
+# Python
+*/__pycache__/

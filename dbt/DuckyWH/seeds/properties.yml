@@ -1,0 +1,6 @@
+version: 2
+
+seeds:
+  - name: filtres
+    config:
+      tags: ["sel_cities"]

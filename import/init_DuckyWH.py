@@ -11,12 +11,11 @@ import_schema = "raw"
 path_db = f"{data_dir}/database"
 # Path to source data
 path_src = f"{data_dir}/source"
+# Path to generated data
+path_gen = f"{data_dir}/genere"
 
 # Connection
 con = duckdb.connect(database = f"{path_db}/DuckyWH.duckdb", read_only = False)
-
-# Default schema to store imported data
-import_schema = "raw"
 
 # init Schema
 sql_init_schema = f"CREATE SCHEMA IF NOT EXISTS {import_schema};"
@@ -44,7 +43,7 @@ sql_init_communes = f"drop table if exists {import_schema}.communes ;"
 sql_load_communes = f"""
     create table if not exists {import_schema}.communes as 
     select distinct * 
-    from read_json('{path_src}/communes.json'
+    from read_json('{path_gen}/cities/communes.json'
                     ,format="array"
                     ,auto_detect="true") ;
     """

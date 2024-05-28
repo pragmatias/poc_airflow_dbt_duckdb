@@ -1,6 +1,7 @@
 {{ config(
   materialized="view",
-  schema="gold"
+  schema="gold",
+  tags=["sel_cities"],
 )}}
 
 with ref_com as (
@@ -12,6 +13,7 @@ with ref_com as (
 , ref_cit as (
   select insee_code 
         ,city_code
+        ,label
         ,zip_code
         ,department_number
         ,department_name
@@ -30,4 +32,4 @@ select r2.insee_code
   ,r1.population
 from ref_com r1
 inner join ref_cit r2
-on (r1.code == r2.insee_code)
+on (r1.code == r2.insee_code and lower(r1.nom) == lower(r2.label))

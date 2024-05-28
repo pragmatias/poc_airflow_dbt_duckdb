@@ -1,0 +1,43 @@
+
+version: 2
+
+models:
+  - name: cities
+    description : "Formatted cities data"
+    data_tests:
+      - unique:
+          column_name: "insee_code||'-'||city_code||'-'||zip_code||'-'||label"
+    columns: 
+      - name: insee_code
+        data_tests:
+          - not_null
+      - name: zip_code
+        data_tests:
+          - not_null
+      - name : latitude
+        data_tests:
+          - not_null
+      - name : longitude
+        data_tests:
+          - not_null
+  - name: communes
+    description : "Formatted communes data"
+    columns:
+      - name: code
+        data_tests:
+          - not_null
+#          - relationships:
+#              to: ref('cities')
+#              field: insee_code
+      - name: population
+        data_tests:
+          - not_null
+          - is_positive
+  - name: ref_cities
+    description : "Cities referential gold data"
+  - name: ref_snap_random
+    description: "Result from random snapshot test"
+    data_test:
+      - unique:
+          column_name: "id||'-'||valid_from"
+

@@ -1,0 +1,11 @@
+selectors:
+  - name: sel_cities
+    description: Manage data for cities/communes
+    default: true
+    definition:
+      tag: sel_cities
+  - name: sel_snap
+    description: Manage data for snapshot testing
+    definition: 
+      tag: sel_snap
+  

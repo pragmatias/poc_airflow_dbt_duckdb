@@ -1,8 +1,0 @@
-
-version: 2
-
-models:
-  - name: cities
-    description : "Formatted cities data"
-  - name: communes
-    description : "Formatted communes data"

@@ -1,6 +1,7 @@
 {{ config(
   materialized="table",
-  schema="silver"
+  schema="silver",
+  tags=["sel_cities"],
 )}}
 
 
@@ -12,7 +13,7 @@ with newdata as (
         ,cast(codeEpci as integer) as codeEpci
         ,cast(codeRegion as integer) as codeRegion
         ,codesPostaux
-        ,cast(population as integer) as population
+        ,cast(coalesce(population,'0') as integer) as population
   from {{ source('raw','communes') }}
 )
 

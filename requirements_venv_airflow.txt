@@ -94,6 +94,7 @@ pluggy==1.5.0
 prison==0.2.1
 protobuf==4.25.3
 psutil==5.9.8
+psycopg2-binary==2.9.9
 pycparser==2.22
 Pygments==2.17.2
 PyJWT==2.8.0
