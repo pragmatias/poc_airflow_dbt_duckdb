@@ -8,11 +8,11 @@ data_dir = f"{file_dir}/data"
 
 
 data_template = [
-    {"id" : 1,"name": "Bob","value": 0,"date" : "2021-01-01"},
-    {"id" : 2,"name": "Geolie","value": 0,"date" : "2021-01-01"},
-    {"id" : 3,"name": "Marly","value": 0,"date" : "2021-01-01"},
-    {"id" : 4,"name": "Charle","value": 0,"date" : "2021-01-01"},
-    {"id" : 5,"name": "Ickey","value": 0,"date" : "2021-01-01"},
+    {"id" : 1,"name": "Bob","value": 0,"date" : "2023-01-01"},
+    {"id" : 2,"name": "Geolie","value": 0,"date" : "2023-01-01"},
+    {"id" : 3,"name": "Marly","value": 0,"date" : "2023-01-01"},
+    {"id" : 4,"name": "Charle","value": 0,"date" : "2023-01-01"},
+    {"id" : 5,"name": "Ickey","value": 0,"date" : "2023-01-01"},
 ]
 
 

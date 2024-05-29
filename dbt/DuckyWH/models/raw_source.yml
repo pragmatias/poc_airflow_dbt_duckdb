@@ -7,4 +7,7 @@ sources:
       - name: cities
       - name: communes
       - name: snap_random
+      - name: geonames_country
+      - name: geonames_admin1
+      - name: geonames_admin2
 

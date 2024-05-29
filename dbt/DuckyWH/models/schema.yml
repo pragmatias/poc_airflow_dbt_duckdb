@@ -40,4 +40,8 @@ models:
     data_test:
       - unique:
           column_name: "id||'-'||valid_from"
+  - name: geonames_country
+  - name: geonames_admin1
+  - name: geonames_admin2
+  - name: ref_geonames_cities
 

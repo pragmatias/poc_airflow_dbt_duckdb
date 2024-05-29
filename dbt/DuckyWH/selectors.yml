@@ -8,4 +8,8 @@ selectors:
     description: Manage data for snapshot testing
     definition: 
       tag: sel_snap
+  - name: sel_geonames
+    description: Manage data for geonames
+    definition:
+      tag: sel_geonames
   

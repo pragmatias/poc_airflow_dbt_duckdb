@@ -32,4 +32,4 @@ select r2.insee_code
   ,r1.population
 from ref_com r1
 inner join ref_cit r2
-on (r1.code == r2.insee_code and lower(r1.nom) == lower(r2.label))
+on (r1.code == r2.insee_code)

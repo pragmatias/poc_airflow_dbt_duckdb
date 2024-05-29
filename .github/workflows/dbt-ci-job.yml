@@ -13,17 +13,17 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  dbt_vi:
+  dbt_ci:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set Up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.8'
+          python-version: '3.11'
 
       - name: Install python requirements
         run: pip install dbt-core dbt-duckdb duckdb
@@ -35,9 +35,15 @@ jobs:
       - name: Get Data from API Communes
         run: python3 scripts_api/get_api_gouv_communes.py
 
+      - name: Get Data from API Geonames
+        run: python3 scripts_api/get_api_geonames.py
+
       - name: Get Import Cities Data
         run: python3 import/init_DuckyWH.py
       
+      - name: Get Import Geonames Data
+        run: python3 import/init_geonames.py
+
       - name: Get Import Snap Data
         run: python3 import/gen_snapshot_data.py
 
