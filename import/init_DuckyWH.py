@@ -1,5 +1,6 @@
 import duckdb
 import pathlib
+import os
 
 file_dir  = pathlib.Path(__file__).parent.parent.resolve()
 data_dir = f"{file_dir}/data"
@@ -13,6 +14,8 @@ path_db = f"{data_dir}/database"
 path_src = f"{data_dir}/source"
 # Path to generated data
 path_gen = f"{data_dir}/genere"
+
+os.makedirs(name=path_db,exist_ok=True)
 
 # Connection
 con = duckdb.connect(database = f"{path_db}/DuckyWH.duckdb", read_only = False)

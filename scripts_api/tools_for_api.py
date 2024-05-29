@@ -17,7 +17,7 @@ def __get_dir(dir,folder):
     if (folder != ""):
         res_dir = dir+"/"+folder
         if not(os.path.exists(res_dir)):
-            os.mkdir(path=res_dir)
+            os.makedirs(name=res_dir,exist_ok=True)
         return res_dir
     else:
         raise Exception("Folder","empty")

@@ -1,0 +1,46 @@
+name : DBT CI Job
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - 'master'
+    paths:
+      - 'dbt/**'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  dbt_vi:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Set Up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+
+      - name: Install python requirements
+        run: pip install dbt-core dbt-duckdb duckdb
+
+      - name: Install dbt dependencies
+        working-directory: ./dbt/DuckyWH
+        run: dbt deps
+
+      - name: Get Data from API Communes
+        run: python3 scripts_api/get_api_gouv_communes.py
+
+      - name: Get Import Cities Data
+        run: python3 import/init_DuckyWH.py
+      
+      - name: Get Import Snap Data
+        run: python3 import/gen_snapshot_data.py
+
+      - name: dbt build
+        working-directory: ./dbt/DuckyWH
+        run: dbt build --full-refresh 

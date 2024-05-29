@@ -23,7 +23,9 @@ check_install=$(pip list | grep -E "dbt-core|dbt-duckdb|duckdb|streamlit" | wc -
 if [ ${check_install} -lt 4 ]
 then
   print_log "Install requirements ..."
-  pip install -r requirements_venv_dbt.txt
+  #pip install -r requirements_venv_dbt.txt
+  pip install dbt-core dbt-duckdb duckdb 
+  pip install streamlit
   print_log "Requirements OK !"
 fi
 

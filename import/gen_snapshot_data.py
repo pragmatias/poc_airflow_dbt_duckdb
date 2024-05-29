@@ -21,6 +21,7 @@ import_schema = "raw"
 # Path to database
 path_db = f"{data_dir}/database"
 
+
 # Connection
 con = duckdb.connect(database = f"{path_db}/DuckyWH.duckdb", read_only = False)
 
