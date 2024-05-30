@@ -22,10 +22,6 @@ print_log "Environment OK !"
 PWD_HOME=`pwd`
 export AIRFLOW_HOME=${PWD_HOME}/airflow
 
-# Create needed subfolder for airflow execution
-print_log "Create subfolder (config & logs) for Airflow execution in ${AIRFLOW_HOME}"
-mkdir -p {${AIRFLOW_HOME}/config,${AIRFLOW_HOME}/logs}
-
 # Install Airflow if needed (local)
 AIRFLOW_INSTALLED=$(pip list | grep "apache-airflow" | grep "2.9.1" | wc -l)
 if [ ${AIRFLOW_INSTALLED} -ne 1 ]

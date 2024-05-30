@@ -5,7 +5,7 @@ then
   rm -rf ${AIRFLOW_HOME}
 fi
 
-deactivate
-
 unset AIRFLOW_HOME
+unset PODMAN_IGNORE_CGROUPSV1_WARNING
 
+deactivate

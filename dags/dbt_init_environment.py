@@ -18,7 +18,7 @@ with DAG(
     schedule=None,
     start_date=datetime(2024,5,14),
     catchup=False,
-    tags=["dbt","init", "clean"],
+    tags=["dbt","init", "clean","environment"],
 ) as dag:
 
     t_clean = clean_dbt()
@@ -29,6 +29,8 @@ with DAG(
 
     t_init_db = run_import("init_DuckyWH.py")
 
+    t_init_db_geo = run_import("init_geonames.py")
+
     t_init_snap = run_import("gen_snapshot_data.py")
 
     t_load_seed = seed_dbt()
@@ -36,5 +38,5 @@ with DAG(
     t_dag_test = run_dag("dbt_build_selectors")
 
     # relation
-    [t_api_communes,t_remove_db] >> t_init_db >> t_init_snap
+    [t_api_communes,t_remove_db] >> t_init_db >> t_init_db_geo >> t_init_snap
     [t_init_snap, t_clean] >> t_load_seed >> t_dag_test

@@ -9,7 +9,7 @@ print_log()
 export PODMAN_IGNORE_CGROUPSV1_WARNING=""
 
 print_log "Stop postgreSQL container (docker) ..."
-podman-compose -f docker/docker_compose.yml stop &
+podman-compose -f docker/docker_compose.yml stop
 
 
 # stop airflow process

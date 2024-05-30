@@ -3,9 +3,8 @@ from datetime import datetime, timedelta
 from airflow.models.dag import DAG
 
 
-
 with DAG(
-    "dbt_build_selectors",
+    "dbt_run_cities",
     default_args={
         "depends_on_past": False,
         "email" : ["contact@pragmatias.fr"],
@@ -14,18 +13,14 @@ with DAG(
         "retries": 1,
         "retry_delay": timedelta(minutes=5),
     },
-    description = "Builds the DBT models",
-    schedule=None,
+    description = "Run the DBT geonames models",
+    schedule="@daily",
     start_date=datetime(2024,5,14),
     catchup=False,
-    tags=["dbt","build","selectors"],
+    tags=["dbt","geonames"],
 ) as dag:
 
-    t_build_cities = exec_dbt("build","sel_cities")
-
-    t_build_snap = exec_dbt("build","sel_snap")
-
-    t_build_geo = exec_dbt("build","sel_geonames")
+    t_run = exec_dbt("run","sel_geonames")
     
-    # Relations
-    t_build_cities >> t_build_geo >> t_build_snap
+    # Relation
+    t_run

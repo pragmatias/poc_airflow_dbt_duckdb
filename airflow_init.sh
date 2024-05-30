@@ -10,14 +10,18 @@ PWD_HOME=`pwd`
 export AIRFLOW_HOME=${PWD_HOME}/airflow
 export PODMAN_IGNORE_CGROUPSV1_WARNING=""
 
-# Execution Docker
-print_log "Create postgreSQL container (docker) ..."
-podman-compose -f docker/docker_compose.yml up &
-print_log "postgreSQL container (docker) created !"
-
 # if db config not exist
 if [ ! -e ${AIRFLOW_HOME}/airflow.db ]
 then 
+  # Create needed subfolder for airflow execution
+  print_log "Create subfolder (config & logs) for Airflow execution in ${AIRFLOW_HOME}"
+  mkdir -p {${AIRFLOW_HOME}/config,${AIRFLOW_HOME}/logs}
+
+  # Execution Docker
+  print_log "Create postgreSQL container (docker) ..."
+  podman-compose -f docker/docker_compose.yml up
+  print_log "postgreSQL container (docker) created !"
+
   print_log "Initialize the airflow configuration ..."
   airflow db migrate 
 
@@ -34,6 +38,12 @@ then
   airflow users create --username admin --firstname admin --lastname admin --role Admin --email admin@admin --password admin
 
   print_log "Airflow configuration OK !"
+
+  print_log "Stop postgreSQL container (docker) ..."
+  podman-compose -f docker/docker_compose.yml stop
+  print_log "postgreSQL container (docker) stopped !"
+else
+  print_log "Nothing to do !"
 fi
 
 

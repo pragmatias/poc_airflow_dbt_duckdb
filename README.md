@@ -41,4 +41,4 @@ Command to manage the Airflow Environment :
 
 ## Streamlit
 
-Command to activate the Streamlit Application : `streamlit run streamlit/display_app.py`
+Command to activate the Streamlit Application : `streamlit run streamlit/home.py`
