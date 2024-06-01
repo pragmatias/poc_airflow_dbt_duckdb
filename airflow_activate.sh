@@ -1,10 +1,6 @@
 #!/bin/sh
 
-print_log()
-{
-  message=$1
-  echo "`date +"%Y-%m-%d %H-%M-%S - "`${message}"
-}
+source ./utils.sh
 
 # check if python env exist
 if [ ! -d ".venv_airflow/" ]
@@ -14,13 +10,13 @@ then
   print_log "Folder .venv_airflow OK !"
 fi
 
-
 print_log "Source the environment ..."
 source .venv_airflow/bin/activate
 print_log "Environment OK !"
 
 PWD_HOME=`pwd`
 export AIRFLOW_HOME=${PWD_HOME}/airflow
+export AIRFLOW_DAGS_HOME=${PWD_HOME}/dags
 
 # Install Airflow if needed (local)
 AIRFLOW_INSTALLED=$(pip list | grep "apache-airflow" | grep "2.9.1" | wc -l)

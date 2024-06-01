@@ -7,7 +7,7 @@ with DAG(
     "dbt_run_cities",
     default_args={
         "depends_on_past": False,
-        "email" : ["contact@pragmatias.fr"],
+        "email" : [""],
         "email_on_failure": False,
         "email_on_retry": False,
         "retries": 1,

@@ -8,7 +8,7 @@ with DAG(
     "dbt_init_environment",
     default_args={
         "depends_on_past": False,
-        "email" : ["contact@pragmatias.fr"],
+        "email" : [""],
         "email_on_failure": False,
         "email_on_retry": False,
         "retries": 1,

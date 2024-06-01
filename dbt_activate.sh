@@ -1,10 +1,7 @@
 #!/bin/sh
 
-print_log()
-{
-  message=$1
-  echo "`date +"%Y-%m-%d %H-%M-%S - "`${message}"
-}
+source ./utils.sh
+
 
 if [ ! -d ".venv_dbt/" ]
 then 

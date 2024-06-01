@@ -4,6 +4,7 @@
 
 # Tools
 airflow/
+prefect/
 
 # Logs
 logs/

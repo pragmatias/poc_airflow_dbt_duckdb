@@ -1,11 +1,12 @@
 #!/bin/sh
 
+source ./utils.sh
+
 if [ ${AIRFLOW_HOME} != "" ]
 then 
   rm -rf ${AIRFLOW_HOME}
+  print_log "AIRFLOW_HOME deleted !"
 fi
 
-unset AIRFLOW_HOME
-unset PODMAN_IGNORE_CGROUPSV1_WARNING
 
-deactivate
+

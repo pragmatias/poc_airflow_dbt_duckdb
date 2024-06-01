@@ -1,0 +1,17 @@
+version: '3'
+services:
+    postgres:
+        image: postgres
+        container_name: postgres_scheduler
+        restart: always
+        shm_size: 128mb
+        environment:
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=postgres
+        volumes:
+            - ./init_postgresql_databases.sql:/docker-entrypoint-initdb.d/init.sql
+            - postgresql_data:/var/lib/postgresql/data
+        ports:
+            - 5432:5432
+volumes:
+    postgresql_data: 
