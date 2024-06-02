@@ -27,6 +27,8 @@ with DAG(
 
     t_api_communes = run_get_api("get_api_gouv_communes.py")
 
+    t_api_geonames = run_get_api("get_api_geonames.py")
+
     t_init_db = run_import("init_DuckyWH.py")
 
     t_init_db_geo = run_import("init_geonames.py")
@@ -38,5 +40,5 @@ with DAG(
     t_dag_test = run_dag("dbt_build_selectors")
 
     # relation
-    [t_api_communes,t_remove_db] >> t_init_db >> t_init_db_geo >> t_init_snap
+    [t_api_communes,t_api_geonames,t_remove_db] >> t_init_db >> t_init_db_geo >> t_init_snap
     [t_init_snap, t_clean] >> t_load_seed >> t_dag_test

@@ -61,7 +61,17 @@ Run deployment : `prefect deployment run dbt-init-environment/dbt_init_environme
 
 GUI webserver : http://127.0.0.1:4200
 
-## DBT
+## Dagster
+
+- To load the Python Dagster environment : `source dagster_activate.sh`
+- To start the Dagster services : `./dagster_start.sh`
+- To stop the Dagster services : `./dagster_stop.sh`
+- To clean all elements created with the Dagster services : `./dagster_clean.sh` 
+
+
+GUI Webserver : http://localhost:3000
+
+## DBT & Streamlit
 
 Command to manage the DBT environment : 
 - To load the Python DBT environment : `source dbt_activate.sh`
@@ -69,5 +79,7 @@ Command to manage the DBT environment :
 
 
 ## Streamlit
+
+_prerequisite : You need to load the Python DBT Environment to use Streamlit_
 
 Command to activate the Streamlit Application : `streamlit run streamlit/home.py`

@@ -20,7 +20,9 @@ with DAG(
     tags=["dbt","geonames"],
 ) as dag:
 
+    t_api_geonames = run_get_api("get_api_geonames.py")
+
     t_run = exec_dbt("run","sel_geonames")
     
     # Relation
-    t_run
+    t_api_geonames >> t_run

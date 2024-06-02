@@ -5,6 +5,7 @@
 # Tools
 airflow/
 prefect/
+dagster/
 
 # Logs
 logs/

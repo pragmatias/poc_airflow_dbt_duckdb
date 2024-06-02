@@ -20,8 +20,8 @@ export PREFECT_HOME=${PWD_HOME}/prefect
 export PREFECT_LOCAL_STORAGE_PATH=${PREFECT_HOME}/storage
 
 # Install Airflow if needed (local)
-PREFECT_INSTALLED=$(pip list | grep "prefect" | wc -l)
-if [ ${PREFECT_INSTALLED} -ne 2 ]
+PREFECT_INSTALLED=$(pip list | grep -E "prefect|prefect-shell" | wc -l)
+if [ ${PREFECT_INSTALLED} -le 2 ]
 then
   print_log "Install requirements ..."
   pip install -U prefect prefect-shell

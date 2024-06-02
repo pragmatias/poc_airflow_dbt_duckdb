@@ -20,7 +20,9 @@ with DAG(
     tags=["dbt","cities"],
 ) as dag:
 
+    t_api_communes = run_get_api("get_api_gouv_communes.py")
+
     t_run = exec_dbt("run","sel_cities")
     
     # Relation
-    t_run
+    t_api_communes >> t_run
