@@ -8,6 +8,7 @@ Hands on with [Airflow](https://airflow.apache.org/), [DBT](https://www.getdbt.c
 ```
 ├── .github/workflows           <--- Config for Github Actions (CI/CD)
 ├── dags                        <--- Dags file for Airflow
+├── dagster_jobs                <--- Jobs/Assets project for Dagster
 ├── data
 |   ├── database                <--- Storage for DuckDB
 |   ├── source                  <--- Storage for Source files
@@ -67,7 +68,6 @@ GUI webserver : http://127.0.0.1:4200
 - To start the Dagster services : `./dagster_start.sh`
 - To stop the Dagster services : `./dagster_stop.sh`
 - To clean all elements created with the Dagster services : `./dagster_clean.sh` 
-
 
 GUI Webserver : http://localhost:3000
 
