@@ -1,6 +1,8 @@
 # Project
 
-Hands on with [Airflow](https://airflow.apache.org/), [DBT](https://www.getdbt.com/) and [Streamlit](https://streamlit.io/)
+POC with [Airflow](https://airflow.apache.org/), [DBT](https://www.getdbt.com/) and [Streamlit](https://streamlit.io/).
+
+Adding POC with [Prefect](https://www.prefect.io/) and [Dagster](https://dagster.io/).
 
 
 # Folders
@@ -29,7 +31,7 @@ Command to manage the PostgreSQL (Docker) server :
 - To create the docker container : `./postgresql_init.sh` 
 - To start the docker container : `./postgresql_start.sh` 
 - To stop the docker container : `./postgresql_stop.sh` 
-- To clean all elements created with the docker container : `./postgresql_clean.sh` 
+- To clean all elements created by the docker container : `./postgresql_clean.sh` 
 
 ## Airflow
 
@@ -43,7 +45,9 @@ Command to manage the Airflow environment :
 - To clean all elements created with the Airflow services : `./postgresql_clean.sh` 
 - To unload the Python Airflow environment : `deactivate`
 
-GUI webserver : http://localhost:8080
+Webserver : http://localhost:8080/home
+
+_Connexion with username/password : admin/admin_
 
 ## Prefect
 
@@ -57,10 +61,12 @@ Command to manage the Prefect environment :
 - To clean all elements created with the Prefect services : `./prefect_clean.sh` 
 - To unload the Python Prefect environment : `deactivate`
 
-Load deployment : `python3 flows/prefect_deployment.py &`
-Run deployment : `prefect deployment run dbt-init-environment/dbt_init_environment`
+Command to deploy :
+- Load deployment : `python3 flows/prefect_deployment.py &`
+- Run deployment : `prefect deployment run dbt-init-environment/dbt_init_environment`
 
-GUI webserver : http://127.0.0.1:4200
+Webserver : http://localhost:4200/dashboard
+
 
 ## Dagster
 
@@ -69,7 +75,7 @@ GUI webserver : http://127.0.0.1:4200
 - To stop the Dagster services : `./dagster_stop.sh`
 - To clean all elements created with the Dagster services : `./dagster_clean.sh` 
 
-GUI Webserver : http://localhost:3000
+Webserver : http://localhost:3000
 
 ## DBT & Streamlit
 
@@ -83,3 +89,5 @@ Command to manage the DBT environment :
 _prerequisite : You need to load the Python DBT Environment to use Streamlit_
 
 Command to activate the Streamlit Application : `streamlit run streamlit/home.py`
+
+Webserver : http://localhost:8501

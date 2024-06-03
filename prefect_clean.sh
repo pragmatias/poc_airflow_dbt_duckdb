@@ -5,7 +5,7 @@ source ./utils.sh
 if [ ${PREFECT_HOME} != "" ]
 then 
   rm -rf ${PREFECT_HOME}
-  print_log "PREFECT_HOME deleted !"
+  print_log "PREFECT_HOME folder deleted !"
 fi
 
 

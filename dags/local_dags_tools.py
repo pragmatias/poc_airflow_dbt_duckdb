@@ -60,8 +60,7 @@ def run_get_api(script):
 def remove_db():
     return BashOperator(
         task_id="remove_db",
-        bash_command = f"cd {dir_db}"
-            + " && rm -f *.duckdb",
+        bash_command = f"rm -f {dir_db}/*.duckdb",
     )
 
 

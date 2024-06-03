@@ -70,7 +70,6 @@ def run_get_api(script):
 def remove_db():
     return ShellOperation(
         commands=[
-            f"cd {dir_db} ",
-            "rm -f *.duckdb",
+            f"rm -f {dir_db}/*.duckdb",
         ]
     ).run()

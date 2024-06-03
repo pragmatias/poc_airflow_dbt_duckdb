@@ -19,7 +19,7 @@ export DAGSTER_HOME=${PWD_HOME}/dagster
 
 # Install Airflow if needed (local)
 DAGSTER_INSTALLED=$(pip list | grep -E "dagster|dagster-webserver|dagster-shell" | wc -l)
-if [ ${DAGSTER_INSTALLED} -le 7 ]
+if [ ${DAGSTER_INSTALLED} -le 3 ]
 then
   print_log "Install requirements ..."
   pip install -U dagster dagster-webserver dagster-shell

@@ -39,8 +39,7 @@ def dbt_seed():
 
 @op(ins={"start": In(Nothing)})
 def remove_db():
-    cmds = f"cd {dir_db} " \
-            + " && rm -f *.duckdb" 
+    cmds = f"rm -f {dir_db}/*.duckdb" 
     execute_shell_command(cmds, output_logging="STREAM", log=get_dagster_logger())
 
 

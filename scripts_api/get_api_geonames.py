@@ -56,25 +56,28 @@ def call_api(filename):
 
 def decompress_zip(filename):
 	txt_file = f"{filename.split('.')[0]}.txt"
-	print(txt_file)
 
 	if not os.path.exists(f"{result_dir}/{filename}") :
-		tfa.print_log(f"Nothing to do [{filename}]")
 		return 
 	
 	tfa.print_log(f"Decompress zip file [{filename}]")
 	with zipfile.ZipFile(f"{result_dir}/{filename}") as zip:
 		with open(f"{result_dir}/{txt_file}",'wb') as f:
 			f.write(zip.read(txt_file))
+
+	if (os.path.exists(f"{result_dir}/{txt_file}")):    
+		os.remove(f"{result_dir}/{filename}")
+	else :
+		tfa.print_log("{txt_file} not found in the file {filename}",tfa.type_log_err)
+		raise Exception("Decompress Zip",)
 	
-	os.remove(f"{result_dir}/{filename}")
 	tfa.print_log(f"File decompressed [{txt_file}]")
 
 
 
 def transform_txt_to_csv(filename,header):
 	csv_file = f"{filename.split('.')[0]}.csv"
-	if os.path.exists(csv_file):
+	if not os.path.exists(f"{result_dir}/{filename}"):
 		return
 	
 	tfa.print_log(f"Transform txt to csv [{filename}]")
