@@ -4,6 +4,7 @@ POC with [Airflow](https://airflow.apache.org/), [DBT](https://www.getdbt.com/) 
 
 Adding POC with [Prefect](https://www.prefect.io/) and [Dagster](https://dagster.io/).
 
+Adding work with [Polars](https://pola.rs/) and [Jupyter-notebooks/VsCode](https://code.visualstudio.com/docs/datascience/jupyter-notebooks)
 
 # Folders
 
@@ -20,6 +21,7 @@ Adding POC with [Prefect](https://www.prefect.io/) and [Dagster](https://dagster
 ├── flows                       <--- Flows file for Prefect
 ├── import                      <--- Scripts to import raw data into DuckDB
 ├── scripts_api                 <--- Scripts to retrieve information from multiple API
+├── scripts_polars              <--- Scripts to work with polars (python) library
 ├── streamlit                   <--- Streamlit application
 ```
 
@@ -91,3 +93,12 @@ _prerequisite : You need to load the Python DBT Environment to use Streamlit_
 Command to activate the Streamlit Application : `streamlit run streamlit/home.py`
 
 Webserver : http://localhost:8501
+
+
+## Polars with Jupiter Notebooks
+
+Command to manage the DBT environment : 
+- To load the Python Polars environment : `source polars_activate.sh`
+- To unload the Python Polars environment : `deactivate`
+
+_Note : `write_delta` function doesn't work with WSL_
