@@ -6,6 +6,8 @@ Adding POC with [Prefect](https://www.prefect.io/) and [Dagster](https://dagster
 
 Adding work with [Polars](https://pola.rs/) and [Jupyter-notebooks/VsCode](https://code.visualstudio.com/docs/datascience/jupyter-notebooks)
 
+Adding work with [SQLMesh](https://sqlmesh.readthedocs.io/en/stable/)
+
 # Folders
 
 ```
@@ -22,6 +24,7 @@ Adding work with [Polars](https://pola.rs/) and [Jupyter-notebooks/VsCode](https
 ├── import                      <--- Scripts to import raw data into DuckDB
 ├── scripts_api                 <--- Scripts to retrieve information from multiple API
 ├── scripts_polars              <--- Scripts to work with polars (python) library
+├── sqlmesh                     <--- SQLMesh project
 ├── streamlit                   <--- Streamlit application
 ```
 
@@ -97,8 +100,25 @@ Webserver : http://localhost:8501
 
 ## Polars with Jupiter Notebooks
 
-Command to manage the DBT environment : 
+Command to manage the Polars environment : 
 - To load the Python Polars environment : `source polars_activate.sh`
 - To unload the Python Polars environment : `deactivate`
 
 _Note : `write_delta` function doesn't work with WSL_
+
+
+## SQLMesh
+
+_prerequisite : You need to retrieve the geonames data (cf scripts_api)_
+
+Command to manage the Python SQLMesh environment :
+- To load the Python SQLMesh environment : `source sqlmesh_activate.sh`
+- To unload the Python SQLMesh environment : `deactivate`
+
+From the SQLMesh folder : `cd sqlmesh`
+- Run the SQLMesh webserver : `sqlmesh ui`
+- Execute plan in a virtual DEV environment : `sqlmesh plan dev`
+- Execute tests only : `sqlmesh tests`
+- Execute audits only : `sqlmesh audit`
+
+Webserver : http://127.0.0.1:8000

@@ -1,0 +1,3 @@
+geonameid;name;latitude;longitude;feature_code;country_code;admin1_code;admin2_code;admin3_code;admin4_code;population;elevation;dem;timezone;modification_date
+6446184;Palaiseau;48.71833;2.24972;ADM4;FR;11;91;913;91477;34120;;92;Europe/Paris;2019-03-29
+6457367;Arrondissement de Palaiseau;48.7145;2.2484;ADM3;FR;11;91;913;;620608;;72;Europe/Paris;2019-03-29

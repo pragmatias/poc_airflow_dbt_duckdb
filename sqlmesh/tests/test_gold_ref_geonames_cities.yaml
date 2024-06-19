@@ -1,0 +1,43 @@
+test_gold_ref_geonames_cities:
+  model: gold.ref_geonames_cities
+  inputs:
+    silver.geonames_admin1:
+      format: csv
+      csv_settings:
+        sep: ";"
+      path: tests/data/geonames_admin1.csv
+    silver.geonames_admin2:
+      format: csv
+      csv_settings:
+        sep: ";"
+      path: tests/data/geonames_admin2.csv
+    silver.geonames_country:
+      format: csv
+      csv_settings:
+        sep: ";"
+      path: tests/data/geonames_country.csv
+  outputs:
+    ctes:
+      ref_cities:
+        partial: true
+        rows:
+          - geonameid: 6446184
+            name: "Palaiseau"
+            population: 34120
+      ref_region:
+        rows:
+          - code: "FR.11"
+            name: "Île-de-France"
+      ref_dept:
+        rows:
+          - codes: "FR.11.91"
+            name: "Essonne"
+    query:
+      partial: true
+      rows:
+        - geonameid: 6446184
+          name: "Palaiseau"
+          region_name: "Île-de-France"
+          dept_name: "Essonne"
+          dept_code: "91" 
+          population: 34120

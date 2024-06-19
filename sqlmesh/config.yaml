@@ -1,0 +1,19 @@
+project : poc
+
+gateways:
+  local:
+    connection:
+      type: duckdb
+      database: ../data/database/SQLMeshDB.duckdb
+
+default_gateway: local
+
+default_target_environment: dev
+
+physical_schema_override:
+  sqlmesh : duckdd
+
+model_defaults:
+  dialect: duckdb
+  owner: dev@prag
+

@@ -1,0 +1,15 @@
+test_silver_geonames_admin1:
+  model: silver.geonames_admin1
+  inputs:
+    bronze.geonames_admin1_raw:
+      format: csv
+      rows: |
+        code,name,name_ascii,geonameid
+        FR.1,test,test,1
+  outputs:
+    query:
+      rows:
+      - code: 'FR.1'
+        name: 'test'
+        name_ascii: 'test'
+        geonameid: 1

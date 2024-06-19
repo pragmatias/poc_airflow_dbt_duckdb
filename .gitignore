@@ -10,6 +10,7 @@ dagster/
 # Logs
 logs/
 dbt/logs/
+sqlmesh/logs/
 
 # Data
 data/database/
@@ -19,3 +20,6 @@ data/result/
 
 # Python
 **/__pycache__/
+
+# SQLMesh
+sqlmesh/.cache/

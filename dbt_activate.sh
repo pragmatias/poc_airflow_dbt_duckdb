@@ -2,16 +2,17 @@
 
 source ./utils.sh
 
+export VENV_NAME="venv_dbt"
 
-if [ ! -d ".venv_dbt/" ]
+if [ ! -d "${VENV_NAME}/" ]
 then 
-  print_log "Creating the folder .venv_dbt ..."
-  python3 -m venv --prompt venv_dbt .venv_dbt
-  print_log "Folder .venv_dbt OK !"
+  print_log "Creating the folder .${VENV_NAME} ..."
+  python3 -m venv --prompt ${VENV_NAME} .${VENV_NAME}
+  print_log "Folder .${VENV_NAME} OK !"
 fi
 
 print_log "Source the environment ..."
-source .venv_dbt/bin/activate
+source .${VENV_NAME}/bin/activate
 print_log "Environment OK !"
 
 # Check if we need to install requirements

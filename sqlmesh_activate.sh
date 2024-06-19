@@ -2,9 +2,9 @@
 
 source ./utils.sh
 
-export VENV_NAME="venv_polars"
+export VENV_NAME="venv_sqlmesh"
 
-if [ ! -d "${VENV_NAME}/" ]
+if [ ! -d ".${VENV_NAME}/" ]
 then 
   print_log "Creating the folder .${VENV_NAME} ..."
   python3 -m venv --prompt ${VENV_NAME} .${VENV_NAME}
@@ -16,12 +16,12 @@ source .${VENV_NAME}/bin/activate
 print_log "Environment OK !"
 
 # Check if we need to install requirements
-check_install=$(pip list | grep -E "polars|deltalake|requests" | wc -l)
+check_install=$(pip list | grep -E "sqlmesh" | wc -l)
 
-if [ ${check_install} -lt 3 ]
+if [ ${check_install} -lt 1 ]
 then
   print_log "Install requirements ..."
-  pip install polars deltalake requests
+  pip install sqlmesh "sqlmesh[web]"
   print_log "Requirements OK !"
 fi
 
